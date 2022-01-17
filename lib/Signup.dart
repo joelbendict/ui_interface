@@ -6,6 +6,8 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -17,6 +19,7 @@ class _SignupState extends State<Signup> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
+          key : _key,
           children: [
             Container(
               height: height * 0.15,

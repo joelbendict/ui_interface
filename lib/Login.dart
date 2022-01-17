@@ -8,6 +8,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -15,7 +16,7 @@ class _LoginState extends State<Login> {
     return Container(
       decoration: BoxDecoration(
           gradient:
-          new LinearGradient(colors: [Colors.blue, Colors.redAccent])),
+              new LinearGradient(colors: [Colors.blue, Colors.redAccent])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -87,9 +88,18 @@ class _LoginState extends State<Login> {
                     child: TextField(
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.text,
-                        obscureText: true,
+                        obscureText: _isObscure,
                         decoration: InputDecoration(
                           hintText: "Password * ",
+                          suffixIcon: IconButton(
+                              icon: Icon(
+                                _isObscure ? Icons.visibility : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _isObscure = !_isObscure;
+                                });
+                              }),
                           hintStyle: TextStyle(
                               fontWeight: FontWeight.bold, letterSpacing: 1.8),
                           border: OutlineInputBorder(
@@ -117,7 +127,7 @@ class _LoginState extends State<Login> {
                   Center(
                     child: Container(
                       padding:
-                      EdgeInsets.symmetric(horizontal: 26, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 26, vertical: 10),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                               colors: [Colors.blue, Colors.redAccent]),
@@ -192,7 +202,7 @@ class _LoginState extends State<Login> {
                     child: Center(
                       child: Container(
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
                             gradient: new LinearGradient(
                                 colors: [Colors.blue, Colors.redAccent]),
