@@ -10,8 +10,14 @@ class _SignupState extends State<Signup> {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    var width = MediaQuery
+        .of(context)
+        .size
+        .width;
     return Container(
       decoration: BoxDecoration(
           gradient:
@@ -19,7 +25,7 @@ class _SignupState extends State<Signup> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
-          key : _key,
+          key: _key,
           children: [
             Container(
               height: height * 0.15,
@@ -179,31 +185,29 @@ class _SignupState extends State<Signup> {
                   ),
                   Center(
                     child: Container(
-                      padding:
-                      EdgeInsets.symmetric(horizontal: 26, vertical: 10),
-                      decoration: BoxDecoration(
-                          gradient: new LinearGradient(
-                              colors: [Colors.blue, Colors.redAccent]),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 4,
-                                color: Colors.redAccent,
-                                offset: Offset(2, 2))
-                          ]),
-                      child: Text(
-                        "Signup".toUpperCase(),
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.7),
-                        textAlign: TextAlign.center,
-                      ),
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 26, vertical: 10),
+                        decoration: BoxDecoration(
+                            gradient: new LinearGradient(
+                                colors: [Colors.blue, Colors.redAccent]),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 4,
+                                  color: Colors.redAccent,
+                                  offset: Offset(2, 2))
+                            ]),
+                        child: Text(
+                          "Signup".toUpperCase(),
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.7),
+                          textAlign: TextAlign.center,
+                        ),
                     ),
                   ),
-
-
                 ],
               ),
             )

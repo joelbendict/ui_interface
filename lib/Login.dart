@@ -1,6 +1,7 @@
 import 'ForgotPassword.dart';
 import 'package:flutter/material.dart';
 import 'Signup.dart';
+import 'form_validator/form_validator.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class _LoginState extends State<Login> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
+          key:_key,
           children: [
             Container(
               height: height * 0.15,
@@ -78,7 +81,9 @@ class _LoginState extends State<Login> {
                                 style: BorderStyle.solid,
                                 color: Colors.grey),
                           ),
-                        )),
+                        )
+
+                    ),
                   ),
                   SizedBox(
                     height: height * 0.04,
@@ -233,4 +238,8 @@ class _LoginState extends State<Login> {
       ),
     );
   }
+}
+String? ValidateText(String formText) {
+  if(formText.isEmpty) return('This field is empty.');
+  return null;
 }
