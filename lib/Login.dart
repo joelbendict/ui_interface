@@ -1,7 +1,8 @@
+import 'package:ui_interface/products_page.dart';
+
 import 'ForgotPassword.dart';
 import 'package:flutter/material.dart';
 import 'Signup.dart';
-import 'form_validator/form_validator.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -132,18 +133,20 @@ class _LoginState extends State<Login> {
                   Center(
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 26, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 9),
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                          gradient: LinearGradient (
                               colors: [Colors.blue, Colors.redAccent]),
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 4,
-                                color: Colors.redAccent,
-                                offset: Offset(2, 2))
-                          ]),
-                      child: Text(
+                          ),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const products()),
+                          );
+                        },
+                        child: Text(
                         "Login".toUpperCase(),
                         style: TextStyle(
                             fontSize: 20,
@@ -151,6 +154,7 @@ class _LoginState extends State<Login> {
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1.7),
                         textAlign: TextAlign.center,
+                      ),
                       ),
                     ),
                   ),
@@ -204,6 +208,7 @@ class _LoginState extends State<Login> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Signup()));
                     },
+                    //on press
                     child: Center(
                       child: Container(
                         padding:
@@ -212,24 +217,18 @@ class _LoginState extends State<Login> {
                             gradient: new LinearGradient(
                                 colors: [Colors.blue, Colors.redAccent]),
                             borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 4,
-                                  color: Colors.redAccent,
-                                  offset: Offset(2, 2))
-                            ]),
-                        child: Text(
-                          "Signup".toUpperCase(),
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.7),
-                          textAlign: TextAlign.center,
+                           ),
+                          child: Text("Signup".toUpperCase(),
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.7),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ),
-                  ),
                 ],
               ),
             )
