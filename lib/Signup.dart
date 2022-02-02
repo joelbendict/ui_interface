@@ -191,12 +191,7 @@ class _SignupState extends State<Signup> {
                             gradient: new LinearGradient(
                                 colors: [Colors.blue, Colors.redAccent]),
                             borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 4,
-                                  color: Colors.redAccent,
-                                  offset: Offset(2, 2))
-                            ]),
+                            ),
                         child: Text(
                           "Signup".toUpperCase(),
                           style: TextStyle(

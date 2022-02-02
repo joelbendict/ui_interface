@@ -7,7 +7,7 @@ class products extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('products'),
+        title: Text('Products'),
       ),
       body: Center(
         child: ElevatedButton(

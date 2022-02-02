@@ -96,7 +96,7 @@ class _LoginState extends State<Login> {
                         keyboardType: TextInputType.text,
                         obscureText: _isObscure,
                         decoration: InputDecoration(
-                          hintText: "Password * ",
+                          hintText: "          Password * ",
                           suffixIcon: IconButton(
                               icon: Icon(
                                 _isObscure ? Icons.visibility : Icons.visibility_off,
@@ -139,8 +139,8 @@ class _LoginState extends State<Login> {
                               colors: [Colors.blue, Colors.redAccent]),
                           borderRadius: BorderRadius.circular(20),
                           ),
-                      child: ElevatedButton(
-                        onPressed: () {
+                      child: GestureDetector(
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const products()),
@@ -171,7 +171,7 @@ class _LoginState extends State<Login> {
                     child: Text(
                       "Forgot Password ?".toUpperCase(),
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 13,
                           color: Colors.blue,
                           //  fontWeight: FontWeight.bold,
                           letterSpacing: 1.7),
@@ -194,7 +194,7 @@ class _LoginState extends State<Login> {
                   Text(
                     "Don't Have Account ?".toUpperCase(),
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 13,
                         // color: Colors.blue,
                         //  fontWeight: FontWeight.bold,
                         letterSpacing: 1.7),
@@ -212,7 +212,7 @@ class _LoginState extends State<Login> {
                     child: Center(
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            EdgeInsets.symmetric(horizontal: 23, vertical: 9),
                         decoration: BoxDecoration(
                             gradient: new LinearGradient(
                                 colors: [Colors.blue, Colors.redAccent]),
