@@ -23,9 +23,7 @@ class _LoginState extends State<Login> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      decoration: BoxDecoration(
-          gradient:
-              new LinearGradient(colors: [Colors.blue, Colors.redAccent])),
+      decoration: BoxDecoration(color: Colors.lightBlue[300]),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -143,9 +141,7 @@ class _LoginState extends State<Login> {
                       child: Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 25, vertical: 9),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Colors.blue, Colors.redAccent]),
+                        decoration: BoxDecoration(color: Colors.lightBlue[300],
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: GestureDetector(
@@ -224,11 +220,8 @@ class _LoginState extends State<Login> {
                       child: Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 23, vertical: 9),
-                        decoration: BoxDecoration(
-                          gradient: new LinearGradient(
-                              colors: [Colors.blue, Colors.redAccent]),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+                        decoration: BoxDecoration(color: Colors.lightBlue[300],
+                          borderRadius: BorderRadius.circular(20),),
                         child: Text(
                           "Signup".toUpperCase(),
                           style: TextStyle(

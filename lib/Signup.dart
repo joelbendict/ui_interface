@@ -19,9 +19,7 @@ class _SignupState extends State<Signup> {
         .size
         .width;
     return Container(
-      decoration: BoxDecoration(
-          gradient:
-          new LinearGradient(colors: [Colors.blue, Colors.redAccent])),
+      decoration: BoxDecoration(color: Colors.lightBlue[300],),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -187,9 +185,7 @@ class _SignupState extends State<Signup> {
                     child: Container(
                         padding:
                         EdgeInsets.symmetric(horizontal: 26, vertical: 10),
-                        decoration: BoxDecoration(
-                            gradient: new LinearGradient(
-                                colors: [Colors.blue, Colors.redAccent]),
+                        decoration: BoxDecoration(color: Colors.lightBlue[300],
                             borderRadius: BorderRadius.circular(20),
                             ),
                         child: Text(

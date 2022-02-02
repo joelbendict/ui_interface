@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_interface/products_page.dart';
 import 'Login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
             Theme.of(context).textTheme,
           )),
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: products(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_interface/undergraduate.dart';
 
 import 'Login.dart';
 
@@ -11,7 +12,7 @@ class NavDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: Text(
-              'Product Categories',
+              'Modules',
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
@@ -20,13 +21,18 @@ class NavDrawer extends StatelessWidget {
                     image: AssetImage('assets/menu_background.jpg'))),
           ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Welcome'),
-            onTap: () => {},
+            leading: Icon(Icons.school),
+            title: Text('Undergraduate'),
+            onTap: () => {
+            Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => Login()))
+            },
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
+            leading: Icon(Icons.school),
+            title: Text('Masters'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
@@ -35,19 +41,29 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
+            leading: Icon(Icons.payment),
+            title: Text('Fees'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            leading: Icon(Icons.input),
+            title: Text('Admission'),
             onTap: () => {
             Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Login()),
             ),
           },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Logout'),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
+              ),
+            },
           ),
         ],
       ),

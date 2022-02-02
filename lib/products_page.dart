@@ -10,7 +10,7 @@ class products extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: (Colors.lightBlue[300]),
-            title: Text('Products')),
+            title: Text('Welcome')),
         body: Container(
 
 
