@@ -9,7 +9,7 @@ class products extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: (Colors.blueAccent),
+            backgroundColor: (Colors.lightBlue[300]),
             title: Text('Products')),
         body: Container(
 

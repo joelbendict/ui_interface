@@ -1,8 +1,11 @@
 import 'package:ui_interface/products_page.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'ForgotPassword.dart';
 import 'package:flutter/material.dart';
 import 'Signup.dart';
+import 'package:email_validator/email_validator.dart';
+
+
 
 class Login extends StatefulWidget {
   @override
@@ -10,8 +13,11 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   bool _isObscure = true;
+  final _emailController = TextEditingController();
+  bool _isValid = false;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -23,7 +29,7 @@ class _LoginState extends State<Login> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
-          key:_key,
+          key: _key,
           children: [
             Container(
               height: height * 0.15,
@@ -58,7 +64,8 @@ class _LoginState extends State<Login> {
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: width * 0.05),
-                    child: TextField(
+                    child: TextFormField(
+                        controller: _emailController,
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
@@ -82,9 +89,7 @@ class _LoginState extends State<Login> {
                                 style: BorderStyle.solid,
                                 color: Colors.grey),
                           ),
-                        )
-
-                    ),
+                        )),
                   ),
                   SizedBox(
                     height: height * 0.04,
@@ -99,7 +104,9 @@ class _LoginState extends State<Login> {
                           hintText: "          Password * ",
                           suffixIcon: IconButton(
                               icon: Icon(
-                                _isObscure ? Icons.visibility : Icons.visibility_off,
+                                _isObscure
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -131,30 +138,34 @@ class _LoginState extends State<Login> {
                     height: height * 0.08,
                   ),
                   Center(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 9),
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient (
+                    child: Form(
+                      key: _formKey,
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 9),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
                               colors: [Colors.blue, Colors.redAccent]),
                           borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const products()));
+                          },
+                          child: Text(
+                            "Login".toUpperCase(),
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.7),
+                            textAlign: TextAlign.center,
                           ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const products()),
-                          );
-                        },
-                        child: Text(
-                        "Login".toUpperCase(),
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.7),
-                        textAlign: TextAlign.center,
-                      ),
+                        ),
                       ),
                     ),
                   ),
@@ -214,21 +225,22 @@ class _LoginState extends State<Login> {
                         padding:
                             EdgeInsets.symmetric(horizontal: 23, vertical: 9),
                         decoration: BoxDecoration(
-                            gradient: new LinearGradient(
-                                colors: [Colors.blue, Colors.redAccent]),
-                            borderRadius: BorderRadius.circular(20),
-                           ),
-                          child: Text("Signup".toUpperCase(),
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.7),
-                            textAlign: TextAlign.center,
-                          ),
+                          gradient: new LinearGradient(
+                              colors: [Colors.blue, Colors.redAccent]),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          "Signup".toUpperCase(),
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.7),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
+                  ),
                 ],
               ),
             )
@@ -238,7 +250,4 @@ class _LoginState extends State<Login> {
     );
   }
 }
-String? ValidateText(String formText) {
-  if(formText.isEmpty) return('This field is empty.');
-  return null;
-}
+
